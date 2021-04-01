@@ -18,7 +18,6 @@ const MainPage = () => {
         }
     }
 
-    // SHAZAM API CALL -- AXIOS
     const shazamApiDetails = async () => {
         let responseMap = {
             "artist": "",
@@ -45,7 +44,6 @@ const MainPage = () => {
         .then(function (response) {
             let allHits = response.data.tracks.hits;
             
-            console.log(allHits);
             for(let i = 0; i < allHits.length; i++) {
                 let artistName = allHits[i].track.subtitle;
                 let trackTitle = allHits[i].track.title;
