@@ -6,6 +6,8 @@ const MainPage = () => {
     const [songTitle, setSongTitle] = useState("");
     const [lyrics, setLyrics] = useState("");
     const [apiDetails, setApiDetails] = useState("");
+    const [shazamArtist, setShazamArtist] = useState("");
+    const [shazamSong, setShazamSong] = useState("");
 
    
     const getLyrics = async (artist, songTitle) => {
@@ -19,7 +21,8 @@ const MainPage = () => {
     }
 
     // SHAZAM API CALL -- AXIOS
-    const shazamApiDetails = async () => {
+    const shazamApiDetails = async (shazamArtist, shazamSong) => {
+        const API_KEY = process.env.REACT_APP_MUSICAL_INTENTIONS_API_KEY;
         let responseMap = {
             "artist": "",
             "song": "",
@@ -27,14 +30,13 @@ const MainPage = () => {
             "shazam": "",
             "apple_music_audio": "",
         };
-        
-        const API_KEY = process.env.REACT_APP_MUSICAL_INTENTIONS_API_KEY;
-        let userTermInput = "michael jackson thriller";
-
+        let userTermInput = `${shazamArtist} ${shazamSong}`;
         const shazamApiCall = {
             method: 'GET',
             url: 'https://shazam.p.rapidapi.com/search',
-            params: { term: `${userTermInput}`, locale: 'en-US', offset: '0', limit: '5' },
+            params: { 
+                term: `${userTermInput}`, locale: 'en-US', offset: '0', limit: '5' 
+            },
             headers: {
                 'x-rapidapi-key': `${API_KEY}`,
                 'x-rapidapi-host':'shazam.p.rapidapi.com'
@@ -44,12 +46,10 @@ const MainPage = () => {
         await axios.request(shazamApiCall)
         .then(function (response) {
             let allHits = response.data.tracks.hits;
-            
-            console.log(allHits);
             for(let i = 0; i < allHits.length; i++) {
                 let artistName = allHits[i].track.subtitle;
                 let trackTitle = allHits[i].track.title;
-                if("thriller".toUpperCase() == trackTitle.toUpperCase()) {
+                if (userTermInput.toUpperCase() === artistName.toUpperCase() + " " + trackTitle.toUpperCase()) {
                     let trackImage = allHits[i].track.images.coverarthq;
                     let shazamLink = allHits[i].track.url;
                     let appleMusicAudio = allHits[i].track.hub.actions[1].uri;
@@ -65,6 +65,7 @@ const MainPage = () => {
         .catch(function (error) {
             console.error(error);
         });
+        console.log(responseMap);
     }
 
     return (
@@ -88,15 +89,14 @@ const MainPage = () => {
                 <label>
                     Shazam Artist Name:
                 </label>
-                <input type="text"/>
+                <input type="text" value={shazamArtist} onChange={(e) => setShazamArtist(e.target.value)}/>
                 <label>
                     Shazam Song Title Name:
                 </label>
-                <input type="text"/>
+                <input type="text" value={shazamSong} onChange={(e) => setShazamSong(e.target.value)}/>
                 <p id="moreDetails">{apiDetails}</p>
-                <button onClick={() => shazamApiDetails()}>Search</button>
+                <button onClick={() => shazamApiDetails(shazamArtist, shazamSong)}>Search</button>
             </div>
-
         </Fragment>
     )
 }
