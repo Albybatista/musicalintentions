@@ -1,17 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState} from 'react';
 import axios from 'axios';
 
 const MainPage = () => {
     const [artist, setArtist] = useState("");
     const [songTitle, setSongTitle] = useState("");
     const [lyrics, setLyrics] = useState("");
-    const [apiDetails, setApiDetails] = useState("");
+    const [apiDetails, setApiDetails] = useState([]);
     const [shazamArtist, setShazamArtist] = useState("");
     const [shazamSong, setShazamSong] = useState("");
 
    
     const getLyrics = async (artist, songTitle) => {
         try {
+            // TODO: add waiting animation for API response
             const response = await axios.get(`https://api.lyrics.ovh/v1/${artist}/${songTitle}`);
             const apiLyrics = response.data.lyrics;
             setLyrics(apiLyrics);
@@ -22,15 +23,19 @@ const MainPage = () => {
 
     // SHAZAM API CALL -- AXIOS
     const shazamApiDetails = async (shazamArtist, shazamSong) => {
-        const API_KEY = process.env.REACT_APP_MUSICAL_INTENTIONS_API_KEY;
+
         let responseMap = {
-            "artist": "",
+            "artistName": "",
             "song": "",
             "image": "",
             "shazam": "",
             "apple_music_audio": "",
         };
+
+        const API_KEY = process.env.REACT_APP_MUSICAL_INTENTIONS_API_KEY;
+        
         let userTermInput = `${shazamArtist} ${shazamSong}`;
+
         const shazamApiCall = {
             method: 'GET',
             url: 'https://shazam.p.rapidapi.com/search',
@@ -46,6 +51,8 @@ const MainPage = () => {
         await axios.request(shazamApiCall)
         .then(function (response) {
             let allHits = response.data.tracks.hits;
+            let result = [];
+
             for(let i = 0; i < allHits.length; i++) {
                 let artistName = allHits[i].track.subtitle;
                 let trackTitle = allHits[i].track.title;
@@ -54,19 +61,34 @@ const MainPage = () => {
                     let shazamLink = allHits[i].track.url;
                     let appleMusicAudio = allHits[i].track.hub.actions[1].uri;
 
-                    responseMap.artist = artistName;
-                    responseMap.song = trackTitle;
-                    responseMap.image = trackImage;
-                    responseMap.shazam = shazamLink;
-                    responseMap.apple_music_audio = appleMusicAudio;
+                    responseMap = {
+                        artistName: artistName,
+                        song: trackTitle,
+                        image: trackImage,
+                        shazam: shazamLink,
+                        apple_music_audio: appleMusicAudio
+                    }
+                    result.push(responseMap);
                 }
             }
+            setApiDetails(result);
         })       
         .catch(function (error) {
             console.error(error);
         });
-        console.log(responseMap);
     }
+
+    const displayResults = apiDetails.map(({ artistName, song, image, shazam, apple_music_audio }, idx) => {
+        return (
+            <ul key={idx}>
+                <li>{artistName}</li> 
+                <li>{song}</li> 
+                <li>{image}</li> 
+                <li>{shazam}</li> 
+                <li>{apple_music_audio}</li> 
+            </ul>
+        );
+    });
 
     return (
         <Fragment>
@@ -94,7 +116,9 @@ const MainPage = () => {
                     Shazam Song Title Name:
                 </label>
                 <input type="text" value={shazamSong} onChange={(e) => setShazamSong(e.target.value)}/>
-                <p id="moreDetails">{apiDetails}</p>
+                <div id="moreDetails">
+                    {displayResults}
+                </div>
                 <button onClick={() => shazamApiDetails(shazamArtist, shazamSong)}>Search</button>
             </div>
         </Fragment>
