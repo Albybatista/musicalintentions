@@ -1,16 +1,14 @@
 import './App.css';
-import React, { Fragment } from 'react';
-import MainPage from './components/MainPage';
-import Carousel from './components/Carousel';
+import React from 'react';
+import NavBar from './components/NavBar/NavBar';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   return (
-    <Fragment>
-    <div className="container">
-      <Carousel />
+    <div className="App">
+      <NavBar />
       <MainPage />
     </div>
-    </Fragment>
   );
 }
 

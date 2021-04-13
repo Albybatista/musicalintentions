@@ -1,0 +1,55 @@
+.NavBar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+
+  border: 2px dashed blue;
+}
+
+.logo-container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid black;
+}
+.logo-m,
+.logo-i {
+  font-family: 'Times New Roman';
+  position: absolute;
+  font-size: 3em;
+  line-height: 50px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.logo {
+  font-size: 1.25em;
+  position: relative;
+  line-height: 50px;
+  text-align: left;
+  margin-left: 10px;
+  border: 1px solid black;
+}
+
+.nav-links-container {
+  position: relative;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  align-items: center;
+
+  border: 1px solid black;
+}
+.nav-links-container > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
