@@ -1,10 +1,13 @@
 import React, { Fragment, useState } from 'react';
 
-const Carousel = () => {
+const Carousel = ( { shazamApiDetails } ) => {
+
     return (
         <Fragment>
-            <div>
-                
+            <div className="container">
+                <div className="carouselImages">
+                    {carouselImages}
+                </div>
             </div>
         </Fragment>
     )
