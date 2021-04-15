@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './MainPage.module.css';
 const axios = require('axios');
+//TODO: import components for renderTopSongs and renderHits.  Will need Artist card as well
 
 const MainPage = ({ getGenius, hits }) => {
     const [userInput, setUserInput] = useState('');
     const [topSongs, setTopSongs] = useState([]);
 
+    //FIXME: turn this into a component
     const renderHits = hits.map((hit, idx) => {
         return (
             <div key={idx}>
@@ -13,6 +15,7 @@ const MainPage = ({ getGenius, hits }) => {
             </div>
         );
     })
+    //FIXME: turn this into a component
     const renderTopSongs = topSongs.map((song, idx) => {
         if (song.images) {
             return (
@@ -24,7 +27,7 @@ const MainPage = ({ getGenius, hits }) => {
                     {song.subtitle}
                 </div>
                 <div>
-                    <img src={song.images.coverart} alt="coverart"/>
+                    <img src={song.images.coverart} alt={song.title} />
                 </div>
             </div>
             )
@@ -51,7 +54,7 @@ const MainPage = ({ getGenius, hits }) => {
     if (hits.length > 0) {
         return (
             <div className={styles.MainPage}>
-            {renderHits}
+            { renderHits }
         </div>
         );
     }
