@@ -32,8 +32,16 @@ const MainPage = ({ getGenius, hits }) => {
             try {
                 const getTopCharts = await axios.get(`http://localhost:3001/charts/track`);
                 const topCharts = getTopCharts.data;
-                
-                setTopSongs(topCharts);
+                let results = [];
+                topCharts.forEach(song => {
+                    let apiMap = {
+                        title: song.title,
+                        subtitle: song.subtitle,
+                        coverart: song.images.coverart
+                    };
+                    console.log(apiMap)
+                })
+                setTopSongs(results);
             } catch (err) {
                 console.error(err.message);
             }
@@ -57,9 +65,6 @@ const MainPage = ({ getGenius, hits }) => {
                 <label htmlFor="search">artist or song:</label>
                 <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
                 <button onClick={() => getGenius(userInput)}>search</button>
-                <div>
-                    {renderTopSongs}
-                </div>
             </div>
         );
     }
