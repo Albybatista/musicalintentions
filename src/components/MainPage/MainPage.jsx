@@ -14,16 +14,21 @@ const MainPage = ({ getGenius, hits }) => {
         );
     })
     const renderTopSongs = topSongs.map((song, idx) => {
-        return (
-            <div key={idx}>
+        if (song.images) {
+            return (
+                <div key={idx}>
                 <div>
                     {song.title}
                 </div>
                 <div className={styles['get-artist']} onClick={() => getGenius(song.subtitle)}>
                     {song.subtitle}
                 </div>
+                <div>
+                    <img src={song.images.coverart} alt="coverart"/>
+                </div>
             </div>
-        )
+            )
+        }
     })
 
     // to display top songs on first render
@@ -32,16 +37,8 @@ const MainPage = ({ getGenius, hits }) => {
             try {
                 const getTopCharts = await axios.get(`http://localhost:3001/charts/track`);
                 const topCharts = getTopCharts.data;
-                let results = [];
-                topCharts.forEach(song => {
-                    let apiMap = {
-                        title: song.title,
-                        subtitle: song.subtitle,
-                        coverart: song.images.coverart
-                    };
-                    console.log(apiMap)
-                })
-                setTopSongs(results);
+
+                setTopSongs(topCharts);
             } catch (err) {
                 console.error(err.message);
             }
@@ -65,6 +62,7 @@ const MainPage = ({ getGenius, hits }) => {
                 <label htmlFor="search">artist or song:</label>
                 <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
                 <button onClick={() => getGenius(userInput)}>search</button>
+                { renderTopSongs }
             </div>
         );
     }
