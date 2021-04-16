@@ -52,6 +52,9 @@ const MainPage = ({ getGenius, hits }) => {
     if (hits.length > 0) {
         return (
             <div className={styles.MainPage}>
+                <label htmlFor="search">artist or song:</label>
+                <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
+                <button onClick={() => getGenius(userInput)}>search</button>
             <Hits
                 hits={hits}
             />
