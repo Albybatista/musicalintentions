@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Hits from '../Hits/Hits';
 import styles from './MainPage.module.css';
 const axios = require('axios');
 //TODO: import components for renderTopSongs and renderHits.  Will need Artist card as well
@@ -8,28 +9,25 @@ const MainPage = ({ getGenius, hits }) => {
     const [topSongs, setTopSongs] = useState([]);
 
     //FIXME: turn this into a component
-    const renderHits = hits.map((hit, idx) => {
-        return (
-            <div key={idx}>
-                {hit.result.title}
-            </div>
-        );
-    })
-    //FIXME: turn this into a component
     const renderTopSongs = topSongs.map((song, idx) => {
         if (song.images) {
             return (
                 <div key={idx}>
-                <div>
-                    {song.title}
+                    <div>
+                        {song.title}
+                    </div>
+                    <div className={styles['get-artist']} onClick={() => getGenius(song.subtitle)}>
+                        {song.subtitle}
+                    </div>
+                    <div>
+                        <img src={song.images.coverart} alt={song.title} />
+                    </div>
                 </div>
-                <div className={styles['get-artist']} onClick={() => getGenius(song.subtitle)}>
-                    {song.subtitle}
-                </div>
-                <div>
-                    <img src={song.images.coverart} alt={song.title} />
-                </div>
-            </div>
+            )
+        }
+        else {
+            return (
+                <div />
             )
         }
     })
@@ -54,7 +52,9 @@ const MainPage = ({ getGenius, hits }) => {
     if (hits.length > 0) {
         return (
             <div className={styles.MainPage}>
-            { renderHits }
+            <Hits
+                hits={hits}
+            />
         </div>
         );
     }
