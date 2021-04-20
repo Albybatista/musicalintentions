@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Hits from '../Hits/Hits';
 import styles from './MainPage.module.css';
 import TopSongs from '../Charts/TopSongs';
+import Carousel from '../Carousel/Carousel';
 const axios = require('axios');
 
 const MainPage = ({ getGenius, hits, setHits }) => {
@@ -56,6 +57,9 @@ const MainPage = ({ getGenius, hits, setHits }) => {
                 <label htmlFor="search">artist or song:</label>
                 <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
                 <button onClick={() => getGenius(userInput)}>search</button>
+                <Carousel
+                    topSongs={topSongs}
+                />
                 <TopSongs
                     topSongs={topSongs}
                     getGenius={getGenius}

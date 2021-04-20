@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './TopSongs.module.css';
 
 const TopSongs = ({ topSongs, getGenius }) => {
-  console.log(topSongs);
+//   console.log(topSongs);
   const renderTopSongs = topSongs.map((song, idx) => {
     if (song.images) {
         return (
