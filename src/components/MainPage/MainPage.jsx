@@ -1,40 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Hits from '../Hits/Hits';
 import styles from './MainPage.module.css';
+import TopSongs from '../Charts/TopSongs';
 const axios = require('axios');
-//TODO: import components for renderTopSongs and renderHits.  Will need Artist card as well
 
 const MainPage = ({ getGenius, hits, setHits }) => {
     const [userInput, setUserInput] = useState('');
     const [topSongs, setTopSongs] = useState([]);
 
+    // for back button
     const resetHits = () => {
         setHits([]);
     };
-
-    //FIXME: turn this into a component
-    const renderTopSongs = topSongs.map((song, idx) => {
-        if (song.images) {
-            return (
-                <div key={idx}>
-                    <div>
-                        {song.title}
-                    </div>
-                    <div className={styles['get-artist']} onClick={() => getGenius(song.subtitle)}>
-                        {song.subtitle}
-                    </div>
-                    <div>
-                        <img src={song.images.coverart} alt={song.title} />
-                    </div>
-                </div>
-            )
-        }
-        else {
-            return (
-                <div />
-            )
-        }
-    })
 
     // to display top songs on first render
     useEffect(() => {
@@ -79,7 +56,10 @@ const MainPage = ({ getGenius, hits, setHits }) => {
                 <label htmlFor="search">artist or song:</label>
                 <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
                 <button onClick={() => getGenius(userInput)}>search</button>
-                { renderTopSongs }
+                <TopSongs
+                    topSongs={topSongs}
+                    getGenius={getGenius}
+                />
             </div>
         );
     }
