@@ -1,15 +1,9 @@
-.Hits {
+.TopSongs {
   position: relative;
-  /* border: 2px dotted green; */
+  /* background-color: pink; */
 }
 
-h1 {
-  margin-top: 80px;
-  margin-bottom: 30px;
-  font-size: 1.25em;
-}
-
-.hit-container {
+.top-songs-container {
   color: white;
   width: 95%;
   max-width: 350px;
@@ -21,34 +15,35 @@ h1 {
   border-radius: 20px;
 }
 
-.hit-container:hover {
-  transform: scale(1.02);
-}
-
-.hit-container > h2 {
+.top-songs-container > h2 {
   position: relative;
   padding-top: 20px;
   font-size: 1em;
   font-weight: 500;
 }
 
-.hit-image {
+.song-image {
   width: 300px;
   height: 300px;
   margin: 0 auto;
   background-color: black;
 }
 
-.hit-image > img {
+.song-image > img {
   height: 100%;
   width: 300px;
 }
 
-
-.hit-pageviews {
+.artist {
   font-size: .9em;
   width: 300px;
   margin: 0 auto;
+  padding-top: 10px;
   display: flex;
-  justify-content: space-between;
+}
+
+.artist:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
 }

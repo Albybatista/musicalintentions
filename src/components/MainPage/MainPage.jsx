@@ -1,37 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Hits from '../Hits/Hits';
 import styles from './MainPage.module.css';
-import Carousel from '../Carousel/Carousel';
+import TopSongs from '../Charts/TopSongs';
 const axios = require('axios');
-//TODO: import components for renderTopSongs and renderHits.  Will need Artist card as well
 
-const MainPage = ({ getGenius, hits }) => {
+const MainPage = ({ getGenius, hits, setHits }) => {
     const [userInput, setUserInput] = useState('');
     const [topSongs, setTopSongs] = useState([]);
 
-    //FIXME: turn this into a component
-    const renderTopSongs = topSongs.map((song, idx) => {
-        if (song.images) {
-            return (
-                <div key={idx}>
-                    <div>
-                        <img src={song.images.coverart} alt={song.title} />
-                    </div>
-                    <div>
-                        {song.title}
-                    </div>
-                    <div className={styles['get-artist']} onClick={() => getGenius(song.subtitle)}>
-                        {song.subtitle}
-                    </div>
-                </div>
-            )
-        }
-        else {
-            return (
-                <div />
-            )
-        }
-    })
+    // for back button
+    const resetHits = () => {
+        setHits([]);
+    };
 
     // to display top songs on first render
     useEffect(() => {
@@ -53,9 +33,16 @@ const MainPage = ({ getGenius, hits }) => {
     if (hits.length > 0) {
         return (
             <div className={styles.MainPage}>
-                <label htmlFor="search">artist or song:</label>
-                <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
-                <button onClick={() => getGenius(userInput)}>search</button>
+                <div>
+                    <label htmlFor="search">artist or song:</label>
+                    <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
+                    <button onClick={() => getGenius(userInput)}>search</button>
+                </div>
+                <div className={styles['back-button']}>
+                    <button onClick={() => resetHits()}>
+                        back
+                    </button>
+                </div>
             <Hits
                 hits={hits}
             />
@@ -69,12 +56,10 @@ const MainPage = ({ getGenius, hits }) => {
                 <label htmlFor="search">artist or song:</label>
                 <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
                 <button onClick={() => getGenius(userInput)}>search</button>
-                <div>
-                    <Carousel
-                        topSongs={topSongs}
-                    />
-                </div>
-                { renderTopSongs }
+                <TopSongs
+                    topSongs={topSongs}
+                    getGenius={getGenius}
+                />
             </div>
         );
     }

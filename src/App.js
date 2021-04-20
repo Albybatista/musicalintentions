@@ -24,6 +24,7 @@ function App() {
       <MainPage
         getGenius={getGenius}
         hits={hits}
+        setHits={setHits}
       />
     </div>
   );
