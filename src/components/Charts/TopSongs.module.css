@@ -1,0 +1,49 @@
+.TopSongs {
+  position: relative;
+  /* background-color: pink; */
+}
+
+.top-songs-container {
+  color: white;
+  width: 95%;
+  max-width: 350px;
+  height: 410px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-color: red;
+  border-radius: 20px;
+}
+
+.top-songs-container > h2 {
+  position: relative;
+  padding-top: 20px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.song-image {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.song-image > img {
+  height: 100%;
+  width: 300px;
+}
+
+.artist {
+  font-size: .9em;
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 10px;
+  display: flex;
+}
+
+.artist:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
