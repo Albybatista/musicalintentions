@@ -24,7 +24,6 @@ const Hits = ({ hits }) => {
     );
   });
   
-  console.log(hits)
   return (
     <div className={styles['Hits']}>
       <h1>
