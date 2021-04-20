@@ -4,9 +4,13 @@ import styles from './MainPage.module.css';
 const axios = require('axios');
 //TODO: import components for renderTopSongs and renderHits.  Will need Artist card as well
 
-const MainPage = ({ getGenius, hits }) => {
+const MainPage = ({ getGenius, hits, setHits }) => {
     const [userInput, setUserInput] = useState('');
     const [topSongs, setTopSongs] = useState([]);
+
+    const resetHits = () => {
+        setHits([]);
+    };
 
     //FIXME: turn this into a component
     const renderTopSongs = topSongs.map((song, idx) => {
@@ -52,9 +56,16 @@ const MainPage = ({ getGenius, hits }) => {
     if (hits.length > 0) {
         return (
             <div className={styles.MainPage}>
-                <label htmlFor="search">artist or song:</label>
-                <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
-                <button onClick={() => getGenius(userInput)}>search</button>
+                <div>
+                    <label htmlFor="search">artist or song:</label>
+                    <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
+                    <button onClick={() => getGenius(userInput)}>search</button>
+                </div>
+                <div className={styles['back-button']}>
+                    <button onClick={() => resetHits()}>
+                        back
+                    </button>
+                </div>
             <Hits
                 hits={hits}
             />
