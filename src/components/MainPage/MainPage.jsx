@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Hits from '../Hits/Hits';
 import styles from './MainPage.module.css';
+import Carousel from '../Carousel/Carousel';
 const axios = require('axios');
 //TODO: import components for renderTopSongs and renderHits.  Will need Artist card as well
 
@@ -14,13 +15,13 @@ const MainPage = ({ getGenius, hits }) => {
             return (
                 <div key={idx}>
                     <div>
+                        <img src={song.images.coverart} alt={song.title} />
+                    </div>
+                    <div>
                         {song.title}
                     </div>
                     <div className={styles['get-artist']} onClick={() => getGenius(song.subtitle)}>
                         {song.subtitle}
-                    </div>
-                    <div>
-                        <img src={song.images.coverart} alt={song.title} />
                     </div>
                 </div>
             )
@@ -68,6 +69,11 @@ const MainPage = ({ getGenius, hits }) => {
                 <label htmlFor="search">artist or song:</label>
                 <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
                 <button onClick={() => getGenius(userInput)}>search</button>
+                <div>
+                    <Carousel
+                        topSongs={topSongs}
+                    />
+                </div>
                 { renderTopSongs }
             </div>
         );
