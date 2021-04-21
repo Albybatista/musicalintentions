@@ -1,0 +1,45 @@
+.footer-container {
+    display: flex;
+    box-sizing: border-box;
+    height: 180px;
+    width: 100%;
+    border: 10px solid black;
+}
+
+.left-side-footer {
+    display: flex;
+    margin: auto;
+    margin-left: 10px;
+}
+
+.middle-divider {
+    display: block;
+    height: 60px;
+    width: 2px;
+    border-radius: 20%;
+    margin: auto;
+    background: black;
+}
+
+.right-side-footer {
+    display: flex;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.name {
+    font-weight: bold;
+    height: 20px;
+    margin: auto;
+}
+
+.socials-links > a {
+    cursor: pointer;
+    padding: 10px;
+    text-decoration-line: none;
+    color: black;
+}
+
+.socials-links > a:hover {
+    color: #C4C4C4;
+}

@@ -3,6 +3,7 @@ import Hits from '../Hits/Hits';
 import styles from './MainPage.module.css';
 import TopSongs from '../Charts/TopSongs';
 import Carousel from '../Carousel/Carousel';
+import Footer from '../Footer/Footer';
 const axios = require('axios');
 
 const MainPage = ({ getGenius, hits, setHits }) => {
@@ -64,6 +65,7 @@ const MainPage = ({ getGenius, hits, setHits }) => {
                     topSongs={topSongs}
                     getGenius={getGenius}
                 />
+                <Footer />
             </div>
         );
     }
