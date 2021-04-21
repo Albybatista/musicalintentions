@@ -1,29 +1,109 @@
 .carousel-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto;
     display: flex;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    border: 10px solid black;
+    justify-content: center;
+    align-items: center;
 }
 
-.carousel-container:hover {
-    
+.slide {
+    opacity: 0;
+    transform: scale(.98);
+}
+
+.slide-active {
+    box-sizing: border-box;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    transition-duration: 3s;
+    transform: scale(1);
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-user-drag: none;
 }
 
 .left-carousel-side {
-    display: flex;
-    margin: auto;
-    margin-left: 10px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 50%;
+    z-index: 10;
+    left: 20px;
+    cursor: pointer;
+}
+
+.left-carousel-side > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
 }
 
 .right-carousel-side {
-    display: flex;
-    margin: auto;
-    margin-right: 10px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 50%;
+    z-index: 10;
+    right: 15px;
+    cursor: pointer;
+}
+
+.right-carousel-side > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
 }
 
 .carousel-bottom {
-    flex: auto;
-    margin-top: auto;
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+}
+
+.carousel-bottom > span {
+    display: inline-block;
+    width: 25px;
+    height: 5px;
+    margin: 0 10px;
+    border-radius: 30px;
+    background-color: white;
+}
+
+.highlight {
+    background-color: red !important;
+}
+
+@media (min-width: 700px) {
+    .carousel-container {
+        height: 600px;
+    }
+}
+@media (min-width: 1000px) {
+    .carousel-container {
+        height: 700px;
+    }
+}
+@media (min-width: 1280px) {
+    .carousel-container {
+        height: 90vh;
+    }
 }
