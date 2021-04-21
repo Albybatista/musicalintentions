@@ -2,8 +2,8 @@
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    max-width: 1200px;
-    height: 400px;
+    max-width: 900px;
+    height: 500px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -94,16 +94,6 @@
 
 @media (min-width: 700px) {
     .carousel-container {
-        height: 600px;
-    }
-}
-@media (min-width: 1000px) {
-    .carousel-container {
         height: 700px;
-    }
-}
-@media (min-width: 1280px) {
-    .carousel-container {
-        height: 90vh;
     }
 }
