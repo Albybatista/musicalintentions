@@ -4,18 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
-
-  border: 2px dashed blue;
+  height: 80px;
 }
 
 .logo-container {
   position: relative;
   width: 50px;
   height: 50px;
-
-  border: 1px solid black;
 }
+
 .logo-m,
 .logo-i {
   font-family: 'Times New Roman';
@@ -33,7 +30,6 @@
   line-height: 50px;
   text-align: left;
   margin-left: 10px;
-  border: 1px solid black;
 }
 
 .nav-links-container {
@@ -43,8 +39,6 @@
   height: 50px;
   line-height: 50px;
   align-items: center;
-
-  border: 1px solid black;
 }
 .nav-links-container > div {
   position: absolute;
