@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 
-function NavBar() {
+function NavBar({ handleSearchBar }) {
     return (
         <div className={styles.NavBar}>
           <div className={styles['logo-container']}>
@@ -13,7 +13,7 @@ function NavBar() {
               Musical Intentions
             </div>
           </div>
-            <div className={styles["nav-links-container"]}>
+            <div className={styles["nav-search-container"]} onClick={() => handleSearchBar()}>
               <i className="fas fa-search"></i>
             </div>
         </div>

@@ -8,6 +8,7 @@ const axios = require('axios');
 function App() {
   const [userInput, setUserInput] = useState('');
   const [hits, setHits] = useState([]);
+  const [searchToggle, setSearchToggle] = useState(false);
   
   const getGenius = async (userInput) => {
     try {
@@ -20,9 +21,15 @@ function App() {
     }
   };
   
+  const handleSearchBar = () => {
+    setSearchToggle(searchToggle ? false : true);
+  };
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar
+        handleSearchBar={handleSearchBar}
+      />
       <MainPage
         getGenius={getGenius}
         hits={hits}
@@ -32,6 +39,7 @@ function App() {
         userInput={userInput}
         setUserInput={setUserInput}
         getGenius={getGenius}
+        searchToggle={searchToggle}
       />
     </div>
   );
