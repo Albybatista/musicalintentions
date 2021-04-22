@@ -4,10 +4,12 @@
     width: 100%;
     max-width: 900px;
     height: 500px;
+    min-height: 500px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: black;
 }
 
 .slide {
@@ -29,9 +31,10 @@
 .image {
     position: absolute;
     width: 100%;
-    top: 50%;
+    min-width: 500px;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10%);
     -webkit-user-drag: none;
 }
 
@@ -39,11 +42,12 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    border: 2px solid red;
     border-radius: 50%;
     z-index: 10;
     left: 20px;
     cursor: pointer;
+    /* border: 2px solid #2b2d42; */
+    background-color: rgba(211, 211, 211, 1);
 }
 
 .left-carousel-side > i {
@@ -51,18 +55,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: red;
+    color: #2b2d42;
 }
 
 .right-carousel-side {
     position: absolute;
     width: 40px;
     height: 40px;
-    border: 2px solid red;
     border-radius: 50%;
     z-index: 10;
     right: 15px;
     cursor: pointer;
+    /* border: 2px solid #2b2d42; */
+    background-color: rgba(211, 211, 211, 1);
 }
 
 .right-carousel-side > i {
@@ -70,7 +75,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: red;
+    color: #2b2d42;
 }
 
 .carousel-bottom {

@@ -1,54 +1,61 @@
 .NavBar {
-  position: relative;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 50px;
+  z-index: 10;
 
   font-family: 'Times New Roman';
-  /* background-color: #8D99AE; */
-  background-color: #D3D3D3;
+  color: #2b2d42;
+  background-color: #8D99AE;
+  /* background-color: #D3D3D3; */
 }
 
 .logo-container {
+  display: flex;
+
+  /* border: 1px solid red; */
+}
+
+.logo-icon {
   position: relative;
   width: 50px;
   height: 50px;
-  margin-left: 10px;
+  user-select: none;
 }
 
 .logo-m,
 .logo-i {
   font-family: 'Times New Roman';
   position: absolute;
-  font-size: 3.25em;
+  font-size: 2em;
   line-height: 50px;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-.logo {
-  font-size: 1.25em;
+.logo-header {
+  font-size: 1.5em;
   position: relative;
   line-height: 50px;
   text-align: left;
-  margin-left: 10px;
+  padding-right: 10px;
+  user-select: none;
 }
 
 .nav-links-container {
   position: relative;
-  display: flex;
   width: 50px;
   height: 50px;
   line-height: 50px;
   align-items: center;
 }
 .nav-links-container > div {
+  font-size: 1.5em;
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  right: 15px;
 }

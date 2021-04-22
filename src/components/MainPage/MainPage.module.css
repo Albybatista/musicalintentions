@@ -1,7 +1,8 @@
 .MainPage {
-  position: relative;
+  position: absolute;
   width: 100%;
   min-width: 400px;
+  top: 50px;
   /* background-color: #2B2D42; */
   /* background-color: #EDF2F4; */
   /* background-color: #8D99AE; */
