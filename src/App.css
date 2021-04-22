@@ -9,7 +9,7 @@ html, body {
 
 .App {
   position: relative;
-  font-family: 'Roboto', 'Oxygen', 'Helvetica Neue', sans-serif;
+  font-family: 'Times New Roman';
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

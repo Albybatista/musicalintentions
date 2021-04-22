@@ -13,9 +13,10 @@ const TopSongs = ({ topSongs, getGenius }) => {
                 <div className={styles['song-image']}>
                     <img src={song.images.coverart} alt={song.title} />
                 </div>
-                <p className={styles['artist']} onClick={() => getGenius(song.subtitle)}>
-                    {song.subtitle}
-                </p>
+                <div className={styles['artist']} onClick={() => getGenius(song.subtitle)}>
+                    Artist:
+                    <p>{song.subtitle}</p>
+                </div>
             </div>
         )
     }

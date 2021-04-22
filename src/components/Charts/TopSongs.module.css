@@ -4,14 +4,14 @@
 }
 
 .top-songs-container {
-  color: white;
+  color: #2b2d42;
   width: 95%;
   max-width: 350px;
   height: 410px;
   position: relative;
   margin: 0 auto;
   margin-bottom: 50px;
-  background-color: red;
+  background-color: #EF233C;
   border-radius: 20px;
 }
 
@@ -19,7 +19,7 @@
   position: relative;
   padding-top: 20px;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .song-image {
@@ -35,15 +35,22 @@
 }
 
 .artist {
-  font-size: .9em;
+  font-size: 1em;
   width: 300px;
   margin: 0 auto;
   padding-top: 10px;
   display: flex;
 }
 
-.artist:hover {
-  color: blue;
-  cursor: pointer;
+.artist > p {
+  margin: 0;
+  margin-left: 7px;
+  padding: 0;
+  display: inline-block;
   text-decoration: underline;
+}
+
+.artist > p:hover {
+  cursor: pointer;
+  color: rgba(211, 211, 211, 1);
 }
