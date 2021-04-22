@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './NavBar.module.css';
 
-function NavBar({ handleSearchBar }) {
+function NavBar({ searchToggle, handleSearchBar }) {
     return (
         <div className={styles.NavBar}>
           <div className={styles['logo-container']}>
@@ -13,9 +13,16 @@ function NavBar({ handleSearchBar }) {
               Musical Intentions
             </div>
           </div>
-            <div className={styles["nav-search-container"]} onClick={() => handleSearchBar()}>
-              <i className="fas fa-search"></i>
-            </div>
+            {searchToggle === true && (
+              <div className={styles['nav-search-container']} onClick={() => handleSearchBar()}>
+                <i className="fas fa-times"></i>
+              </div>
+            )}
+            {searchToggle === false && (
+              <div className={styles['nav-search-container']} onClick={() => handleSearchBar()}>
+                <i className="fas fa-search"></i>
+              </div>
+            )}
         </div>
     );
 };

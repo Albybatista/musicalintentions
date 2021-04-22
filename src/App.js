@@ -29,6 +29,7 @@ function App() {
     <div className="App">
       <NavBar
         handleSearchBar={handleSearchBar}
+        searchToggle={searchToggle}
       />
       <MainPage
         getGenius={getGenius}
