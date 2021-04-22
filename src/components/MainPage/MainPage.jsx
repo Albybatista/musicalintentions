@@ -4,6 +4,7 @@ import styles from './MainPage.module.css';
 import TopSongs from '../Charts/TopSongs';
 import Carousel from '../Carousel/Carousel';
 import Footer from '../Footer/Footer';
+import About from '../About/About';
 const axios = require('axios');
 
 const MainPage = ({ getGenius, hits, setHits }) => {
@@ -40,6 +41,7 @@ const MainPage = ({ getGenius, hits, setHits }) => {
     else {
         return (
             <div className={styles.MainPage}>
+                <About />
                 <Carousel
                     topSongs={topSongs}
                 />

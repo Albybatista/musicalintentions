@@ -1,0 +1,33 @@
+.about-container {
+    height: 100%;
+    border: 10px solid black;
+}
+
+.image {
+    display: inline-block;
+    margin-left: 0 auto;
+    height: 300px;
+    width: 300px;
+    border: 10px solid red;
+}
+
+.text-section {
+    display: inline-block;
+    height: 300px;
+    width: 500px;
+    border: 10px solid blue;
+    justify-content: space-between;
+}
+
+.top {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
