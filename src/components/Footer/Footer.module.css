@@ -3,7 +3,7 @@
     box-sizing: border-box;
     height: 180px;
     width: 100%;
-    border: 10px solid black;
+    border: 3px solid black;
 }
 
 .left-side-footer {
@@ -42,4 +42,27 @@
 
 .socials-links > a:hover {
     color: #C4C4C4;
+}
+
+@media (max-width: 736px) {
+    .footer-container {
+        display: inline-block;
+        flex-wrap: wrap;
+        padding: 2px;
+    }
+    .middle-divider {
+        transform: rotate(90deg);
+    }
+    .left-side-footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: 2px;
+    }
+    .right-side-footer {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: 6px;
+    }
 }
