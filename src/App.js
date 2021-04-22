@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import NavBar from './components/NavBar/NavBar';
 import MainPage from './components/MainPage/MainPage';
 import './App.css';
+import SearchBar from './components/SearchBar/SearchBar';
 const axios = require('axios');
 
 function App() {
+  const [userInput, setUserInput] = useState('');
   const [hits, setHits] = useState([]);
   
   const getGenius = async (userInput) => {
@@ -25,6 +27,11 @@ function App() {
         getGenius={getGenius}
         hits={hits}
         setHits={setHits}
+      />
+      <SearchBar
+        userInput={userInput}
+        setUserInput={setUserInput}
+        getGenius={getGenius}
       />
     </div>
   );

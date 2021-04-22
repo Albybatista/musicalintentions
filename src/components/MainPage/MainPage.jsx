@@ -7,13 +7,7 @@ import Footer from '../Footer/Footer';
 const axios = require('axios');
 
 const MainPage = ({ getGenius, hits, setHits }) => {
-    const [userInput, setUserInput] = useState('');
     const [topSongs, setTopSongs] = useState([]);
-
-    // for back button
-    const resetHits = () => {
-        setHits([]);
-    };
 
     // to display top songs on first render
     useEffect(() => {
@@ -35,18 +29,9 @@ const MainPage = ({ getGenius, hits, setHits }) => {
     if (hits.length > 0) {
         return (
             <div className={styles.MainPage}>
-                <div>
-                    <label htmlFor="search">artist or song:</label>
-                    <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
-                    <button onClick={() => getGenius(userInput)}>search</button>
-                </div>
-                <div className={styles['back-button']}>
-                    <button onClick={() => resetHits()}>
-                        back
-                    </button>
-                </div>
             <Hits
                 hits={hits}
+                setHits={setHits}
             />
         </div>
         );
@@ -55,9 +40,6 @@ const MainPage = ({ getGenius, hits, setHits }) => {
     else {
         return (
             <div className={styles.MainPage}>
-                {/* <label htmlFor="search">artist or song:</label>
-                <input id="search" type="text" name="search" onChange={(e) => setUserInput(e.target.value)}/>
-                <button onClick={() => getGenius(userInput)}>search</button> */}
                 <Carousel
                     topSongs={topSongs}
                 />

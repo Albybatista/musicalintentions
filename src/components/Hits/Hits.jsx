@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './Hits.module.css';
 
-const Hits = ({ hits }) => {
+const Hits = ({ hits, setHits }) => {
+  // for back button
+  const resetHits = () => {
+    setHits([]);
+  };
+
   // render hits
   const renderHits = hits.map((hit, idx) => {
     return (
@@ -26,6 +31,9 @@ const Hits = ({ hits }) => {
   
   return (
     <div className={styles['Hits']}>
+      <button onClick={() => resetHits()}>
+          back
+      </button>
       <h1>
         Popular Tracks by Artist
       </h1>

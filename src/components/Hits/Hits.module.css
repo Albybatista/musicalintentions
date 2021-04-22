@@ -1,16 +1,33 @@
 .Hits {
   position: relative;
+  margin-top: 70px;
+  color: #2b2d42;
+}
+
+.Hits > button {
+  position: absolute;
+  left: 10px;
+  color: #2b2d42;
+  background-color: #8D99AE;
+  width: 60px;
+  height: 40px;
+  border: 2px solid #2b2d42;
+  cursor: pointer;
+}
+
+.Hits > button:hover {
+  background: #D3D3D3;
+  transition: background 250ms ease-in-out;
 }
 
 h1 {
-  margin-top: 80px;
-  margin-bottom: 30px;
-  font-size: 1.25em;
+  margin: 0;
+  margin-bottom: 50px;
+  font-size: 1.5em;
+  line-height: 40px;
 }
 
 .hit-container {
-  color: #2b2d42;
-  /* color: #edf2f4; */
   width: 95%;
   max-width: 350px;
   height: 410px;
@@ -18,10 +35,9 @@ h1 {
   margin: 0 auto;
   margin-bottom: 50px;
   /* background-color: #A4161A; */
-  background-color: #BA181B;
-  background-color: #D90429;
+  /* background-color: #BA181B; */
+  /* background-color: #D90429; */
   background-color: #EF233C;
-  /* border-radius: 30px; */
 }
 
 .hit-container:hover {
@@ -45,7 +61,6 @@ h1 {
 .hit-image > img {
   height: 100%;
   width: 300px;
-  /* border-radius: 10px; */
 }
 
 
