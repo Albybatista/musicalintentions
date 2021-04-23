@@ -1,6 +1,6 @@
 .about-container {
     height: 100%;
-    border: 10px solid black;
+    border: 2px solid black;
 }
 
 .image {
@@ -22,7 +22,6 @@
 .top {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
 }
 
 .bottom {
@@ -30,4 +29,41 @@
     justify-content: space-around;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.socials-links > a {
+    cursor: pointer;
+    padding: 10px;
+    color: black;
+
+}
+
+@media (max-width: 736px) {
+    .image,
+    .text-section {
+        max-height: 200px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .top {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .divider {
+        display: block;
+        height: 60px;
+        width: 2px;
+        border-radius: 20%;
+        margin: auto;
+        background: black;
+        transform: rotate(90deg);
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: auto;
+    }
 }
