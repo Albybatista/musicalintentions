@@ -28,6 +28,17 @@
     margin-right: 10px;
 }
 
+.logo {
+    margin-block-start: auto;
+    margin-left: 4px;
+    margin-bottom: 4px;
+}
+
+.copyright {
+    margin-block-start: auto;
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
 .name {
     font-weight: bold;
     height: 20px;
