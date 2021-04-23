@@ -5,6 +5,9 @@ const Footer = () => {
 
     return(
         <div className={styles['footer-container']}>
+            <span className={styles['logo']}>
+                Musical Intentions
+            </span>
             <span className={styles['name']}>
                 Alby Batista
             </span>
@@ -39,6 +42,9 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
+            <span className={styles['copyright']}>
+                <i className="far fa-copyright"> Copyright 2021</i>
+            </span>
         </div>
     )
 }
