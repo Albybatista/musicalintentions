@@ -14,8 +14,8 @@ function App() {
     try {
         const getApi = await axios.get(`http://localhost:3001/${userInput}`);
         const hits = getApi.data.response.hits; // an array of hits
-
         setHits(hits);
+        scrollToTop();
     } catch (err) {
         console.error(err.message);
     }
@@ -24,6 +24,10 @@ function App() {
   const handleSearchBar = () => {
     setSearchToggle(searchToggle ? false : true);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  }
 
   return (
     <div className="App">
