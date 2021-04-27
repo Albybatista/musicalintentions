@@ -9,6 +9,7 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [hits, setHits] = useState([]);
   const [searchToggle, setSearchToggle] = useState(false);
+  const [aboutToggle, setAboutToggle] = useState(false);
   
   const getGenius = async (userInput) => {
     try {
@@ -25,6 +26,14 @@ function App() {
     setSearchToggle(searchToggle ? false : true);
   };
 
+  const renderAboutSection = () => {
+    setAboutToggle(aboutToggle ? false : true);
+    scrollToTop();
+    if(hits) {
+      setHits([]);
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   }
@@ -39,6 +48,8 @@ function App() {
         getGenius={getGenius}
         hits={hits}
         setHits={setHits}
+        aboutToggle={aboutToggle}
+        renderAboutSection={renderAboutSection}
       />
       <SearchBar
         userInput={userInput}

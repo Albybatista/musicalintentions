@@ -1,5 +1,7 @@
 .about-container {
     height: 100%;
+    position: relative;
+    top: 100px;
     border: 2px solid black;
 }
 

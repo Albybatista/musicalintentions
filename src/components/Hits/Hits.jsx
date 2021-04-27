@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './Hits.module.css';
+import Footer from '../Footer/Footer';
 
-const Hits = ({ hits, setHits }) => {
+const Hits = ({ hits, setHits, renderAboutSection }) => {
   // for back button
   const resetHits = () => {
     setHits([]);
@@ -38,6 +39,9 @@ const Hits = ({ hits, setHits }) => {
         Popular Tracks by Artist
       </h1>
       { renderHits }
+      <Footer 
+        renderAboutSection={renderAboutSection}
+      />
     </div>
   );
 };

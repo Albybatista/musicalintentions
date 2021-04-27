@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import About from '../About/About';
 const axios = require('axios');
 
-const MainPage = ({ getGenius, hits, setHits }) => {
+const MainPage = ({ getGenius, hits, setHits, aboutToggle, renderAboutSection }) => {
     const [topSongs, setTopSongs] = useState([]);
 
     // to display top songs on first render
@@ -33,15 +33,23 @@ const MainPage = ({ getGenius, hits, setHits }) => {
             <Hits
                 hits={hits}
                 setHits={setHits}
+                renderAboutSection={renderAboutSection}
             />
         </div>
         );
+    }
+    //render about
+    else if (aboutToggle){
+        return (
+            <About
+                renderAboutSection={renderAboutSection}
+            />
+        )
     }
     // render main page
     else {
         return (
             <div className={styles.MainPage}>
-                <About />
                 <Carousel
                     topSongs={topSongs}
                 />
@@ -49,7 +57,10 @@ const MainPage = ({ getGenius, hits, setHits }) => {
                     topSongs={topSongs}
                     getGenius={getGenius}
                 />
-                <Footer />
+                <Footer 
+                    renderAboutSection={renderAboutSection}
+                    aboutToggle={aboutToggle}
+                />
             </div>
         );
     }
