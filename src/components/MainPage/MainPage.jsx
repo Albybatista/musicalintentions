@@ -45,7 +45,7 @@ const MainPage = ({ getGenius, hits, setHits, aboutToggle, renderAboutSection })
             <About
                 renderAboutSection={renderAboutSection}
             />
-            <Footer/>
+            <Footer />
             </div>
         )
     }
