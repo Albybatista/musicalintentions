@@ -1,16 +1,11 @@
 .footer-container {
+    display: inline-block;
     position: relative;
-    display: flex;
-    box-sizing: border-box;
-    height: 180px;
-    width: 100%;
+    flex-wrap: wrap;
+    height: 160px;
+    width: fill-available;
     border: 3px solid black;
-}
-
-.left-side-footer {
-    display: flex;
-    margin: auto;
-    margin-left: 10px;
+    padding: 2px;
 }
 
 .middle-divider {
@@ -20,25 +15,31 @@
     border-radius: 20%;
     margin: auto;
     background: black;
+    transform: rotate(90deg);
+}
+
+.left-side-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 2px;
 }
 
 .right-side-footer {
     display: flex;
-    margin: auto;
-    margin-right: 10px;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 6px;
 }
 
 .logo {
-    margin-block-start: auto;
-    margin-left: 4px;
-    margin-bottom: 4px;
+    display: none;
 }
 
 .copyright {
-    margin-block-start: auto;
-    margin-right: 4px;
-    margin-bottom: 4px;
+    display: none;
 }
+
 .name {
     font-weight: bold;
     height: 20px;
@@ -56,25 +57,34 @@
     color: #C4C4C4;
 }
 
-@media (max-width: 736px) {
+@media (min-width: 737px) {
     .footer-container {
-        display: inline-block;
-        flex-wrap: wrap;
-        padding: 2px;
+        display: flex;
+        max-width: 100%;
     }
     .middle-divider {
-        transform: rotate(90deg);
+        transform: rotate(0deg);
     }
     .left-side-footer {
         display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        margin-left: 2px;
+        margin: auto;
+        margin-left: 10px;
     }
     .right-side-footer {
         display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        margin-left: 6px;
+        margin: auto;
+        margin-right: 10px;
+    }
+    .logo {
+        display: block;
+        margin-block-start: auto;
+        margin-left: 4px;
+        margin-bottom: 4px;
+    }
+    .copyright {
+        display: block;
+        margin-block-start: auto;
+        margin-right: 4px;
+        margin-bottom: 4px;
     }
 }

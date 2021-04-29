@@ -41,9 +41,12 @@ const MainPage = ({ getGenius, hits, setHits, aboutToggle, renderAboutSection })
     //render about
     else if (aboutToggle){
         return (
+            <div>
             <About
                 renderAboutSection={renderAboutSection}
             />
+            <Footer/>
+            </div>
         )
     }
     // render main page
