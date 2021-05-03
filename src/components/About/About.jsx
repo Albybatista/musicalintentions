@@ -7,7 +7,7 @@ const About = ({ renderAboutSection }) => {
                 <div className={styles['about-container']}>
                     <h2>About the Developers</h2>
                     <div>
-                        <button onClick={() => renderAboutSection()}>Back</button>
+                        <button onClick={() => renderAboutSection()} className={styles['back-button']}>Back</button>
                     </div>
                     <div className={styles['top']}>
                         <div className={styles['image']}>

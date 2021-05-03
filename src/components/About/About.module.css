@@ -58,6 +58,17 @@
     color: #C4C4C4;
 }
 
+.back-button {
+    position: absolute;
+    left: 10px;
+    color: #2b2d42;
+    background-color: #8D99AE;
+    width: 60px;
+    height: 40px;
+    border: 2px solid #2b2d42;
+    cursor: pointer;
+}
+
 @media (min-width: 737px) {
     .image {
         display: inline-block;
