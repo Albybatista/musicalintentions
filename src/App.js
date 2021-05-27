@@ -3,7 +3,33 @@ import NavBar from './components/NavBar/NavBar';
 import MainPage from './components/MainPage/MainPage';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import About from './components/About/About';
+import Hits from './components/Hits/Hits';
 const axios = require('axios');
+
+const routes = [
+  {
+    Component: MainPage,
+    key: 'MainPage',
+    path: '/main'
+  },
+  {
+    Component: SearchBar,
+    key: 'Search',
+    path: '/search'
+  },
+  {
+    Component: Hits,
+    key: 'Hits',
+    path: '/hits'
+  },
+  {
+    Component: About,
+    key: 'About',
+    path: '/about'
+  }
+]
 
 function App() {
   const [userInput, setUserInput] = useState('');
@@ -40,6 +66,21 @@ function App() {
 
   return (
     <div className="App">
+      <Router>
+        <Switch>
+          {
+            routes.map(({Component, key, path}) => {
+              return (
+                <Route
+                  key={key}
+                  path={path}
+                  component={() => <Component page={key} />}
+                  />
+              )
+            })
+          }
+        </Switch>
+      </Router>
       <NavBar
         handleSearchBar={handleSearchBar}
         searchToggle={searchToggle}

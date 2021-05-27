@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
-
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 const Footer = ({ renderAboutSection }) => {
 
 return(
@@ -8,9 +9,13 @@ return(
 			<span className={styles['logo']}>
 					Musical Intentions
 			</span>
-				<span className={styles['name']} onClick={() => renderAboutSection()}>
-					Alby Batista
-				</span>
+			<Router>
+			<Link to='/about' className={styles['name']}>
+					<span onClick={() => renderAboutSection()}>
+						Alby Batista
+					</span>
+					</Link>
+			</Router>
 			<div className={styles['left-side-footer']}>
 					<div className={styles['socials-links']}>
 							<a href='https://www.linkedin.com/in/albybatista'>
@@ -26,10 +31,13 @@ return(
 			</div>
 			<div className={styles['middle-divider']}>
 			</div>
-			
-			<div className={styles['name']} onClick={() => renderAboutSection()}>
-					Noa Kim
-			</div>
+		<Router>
+			<Link to='/about' className={styles['name']}>
+				<div onClick={() => renderAboutSection()}>
+						Noa Kim
+				</div>
+			</Link>
+		</Router>
 			<div className={styles['right-side-footer']}>
 					<div className={styles['socials-links']}>
 							<a href='https://www.linkedin.com/in/noakim'>

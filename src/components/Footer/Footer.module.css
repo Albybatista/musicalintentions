@@ -44,6 +44,7 @@
     font-weight: bold;
     height: 20px;
     margin: auto;
+    text-decoration: none;
 }
 
 .socials-links > a {
