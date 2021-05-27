@@ -5,6 +5,11 @@
     border: 2px solid black;
 }
 
+.about-header {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
 .image {
     display: inline-block;
     margin-left: 0 auto;
@@ -31,6 +36,7 @@
 .top {
     display: flex;
     flex-direction: column;
+    margin: 2em;
 }
 
 .divider {
@@ -47,6 +53,7 @@
     display: flex;
     flex-direction: column-reverse;
     margin-top: auto;
+    margin: 2em;
 }
 .socials-links > a {
     cursor: pointer;
@@ -67,9 +74,32 @@
     height: 40px;
     border: 2px solid #2b2d42;
     cursor: pointer;
+    margin-top: 1em;
+}
+
+.about-footer {
+    border: 2px solid gold;
+    margin-top: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-name {
+    font-weight: bold;
+    margin: 1em;
+}
+
+.copyright {
+    font-weight: bold;
+    margin: 1em;
 }
 
 @media (min-width: 737px) {
+    .about-footer {
+        overflow-y: hidden;
+    }
     .image {
         display: inline-block;
         margin-left: 0 auto;

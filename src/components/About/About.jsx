@@ -5,8 +5,9 @@ const About = ({ renderAboutSection }) => {
         return (
             <div>
                 <div className={styles['about-container']}>
-                    <h2>About the Developers</h2>
-                    <div>
+                    
+                    <div className={styles['about-header']}>
+                        <h2>About the Developers</h2>
                         <button onClick={() => renderAboutSection()} className={styles['back-button']}>Back</button>
                     </div>
                     <div className={styles['top']}>
@@ -49,6 +50,16 @@ const About = ({ renderAboutSection }) => {
                             Picture: Noa Kim
                         </div>
                     </div>
+                </div>
+                <div className={styles['about-footer']}>
+                    <span className={styles['app-name']}>
+                        Musical Intentions
+                    </span>
+                    <span className={styles['copyright']}>
+                        2021
+                        <i className="far fa-copyright">
+                        </i>
+                    </span>
                 </div>
             </div>
         )
