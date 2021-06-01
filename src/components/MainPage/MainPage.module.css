@@ -1,3 +1,26 @@
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgb(179, 177, 177);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #EF233C;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #d22438;
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: #b41e2f;
+  border-radius: 10px;
+}
+
 .MainPage {
   position: absolute;
   width: 100%;
