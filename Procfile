@@ -1,3 +1,3 @@
 heroku scale web=0
-bot: npm run dev
-heroku scale bot=1
+web: npm run dev
+heroku scale web=1
